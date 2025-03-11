@@ -46,3 +46,8 @@ def categorize_col(df, col, label):
 labels = ['not_popular', 'below_average', 'average', 'popular']
 categorize_col(df, 'Vote_Average', labels)
 print(df['Vote_Average'].unique())
+
+df['Vote_Average'].value_counts()
+
+df.dropna(inplace = True)
+df.isna().sum()
