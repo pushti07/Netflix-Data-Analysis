@@ -51,3 +51,19 @@ df['Vote_Average'].value_counts()
 
 df.dropna(inplace = True)
 df.isna().sum()
+
+
+# We'd split genres into a list and then explode our DataFrame to have only one genre per row for each movie
+df['Genre'] = df['Genre'].str.split(', ')
+
+df = df.explode('Genre').reset_index(drop = True)
+df.head()
+
+# casting Column into Category
+df['Genre'] = df['Genre'].astype('category')
+
+df['Genre'].dtypes
+
+df.nunique()
+
+
